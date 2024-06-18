@@ -1,3 +1,4 @@
+using Assets.Project_CarSurfers.Scripts;
 using Assets.Project_HyperBoxer.Scripts.UI;
 using Assets.Project_HyperBoxer.Scripts.UI.Base;
 using Reflex.Attributes;
@@ -5,20 +6,15 @@ using Reflex.Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GameInstaller : MonoBehaviour
-    //, IInstaller
+public class GameInstaller : MonoBehaviour, IInstaller
 {
-    [Inject] private GameplayWindow _sceneWindow;
-    [Inject] private UIDocument _uiDocument;
+    [field: SerializeField] public Joystick Joystick { get; private set; }
+    [field: SerializeField] public PrometeoCarController CarController { get; private set; }
 
-
-    private void Start()
+    public void InstallBindings(ContainerBuilder containerBuilder)
     {
-        
-    }
-
-    private void OnDisable()
-    {
-        
+        containerBuilder
+            .AddSingleton(this)
+            .AddSingleton(CarController);
     }
 }

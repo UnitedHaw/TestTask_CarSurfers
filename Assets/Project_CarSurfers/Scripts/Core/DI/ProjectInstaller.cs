@@ -1,8 +1,4 @@
-using Assets.Project_HyperBoxer.Scripts.Test;
-using Assets.Project_HyperBoxer.Scripts.UI;
 using Reflex.Core;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
