@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class GameInstaller : MonoBehaviour, IInstaller
 {
     [field: SerializeField] public Joystick Joystick { get; private set; }
-    [field: SerializeField] public PrometeoCarController CarController { get; private set; }
+    [field: SerializeField] public JoystickCarController CarController { get; private set; }
 
     public void InstallBindings(ContainerBuilder containerBuilder)
     {

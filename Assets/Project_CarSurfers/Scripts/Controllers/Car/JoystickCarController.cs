@@ -10,11 +10,11 @@ namespace Assets.Project_CarSurfers.Scripts
 {
     public class JoystickCarController : PrometeoCarController
     {
+        [SerializeField, Range(0, .9f)] private float _minAxisThreshold;
+
         public void TurnByAxis(float axis)
         {
-            Debug.Log("Turn Axis: " + axis);
-
-            if (axis == 0) return;
+            if (Mathf.Abs(axis) < _minAxisThreshold) return;
 
             if (axis < 0)
             {
@@ -32,15 +32,12 @@ namespace Assets.Project_CarSurfers.Scripts
                 }
             }
 
-            var steeringAngle = steeringAxis * maxSteeringAngle;
+            Debug.Log("Steering axis: " +  steeringAxis);
+
+            var steeringAngle = steeringAxis * Math.Abs(axis) * maxSteeringAngle;
             frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
             frontRightCollider.steerAngle = Mathf.Lerp(frontRightCollider.steerAngle, steeringAngle, steeringSpeed);
-        }
-
-        public void MoveForwardByAxis(float axis)
-        {
-            Debug.Log("Move axis: " + axis);
-            GoForward();
+            Debug.Log("steeringAngle: " + steeringAngle);
         }
     }
 }

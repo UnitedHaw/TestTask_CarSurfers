@@ -14,8 +14,12 @@ namespace Assets.Project_CarSurfers.Scripts.ECS.Systems
             foreach (var entity in _carComponentFilter.Value)
             {
                 var car = _carComponentPool.Value.Get(entity);
+                var direction = car.Direction;
                 var controller = car.CarController;
-                controller.MoveForwardByAxis(car.Direction.y);
+                controller.GoForward();
+
+                if (direction == Vector2.zero) continue;
+
                 controller.TurnByAxis(car.Direction.x);
             }
         }

@@ -9,7 +9,6 @@ public class TestRun : MonoBehaviour
 
     private void Update()
     {
-        //_car.TurnByAxis(-.2f);
-        //_car.MoveForwardByAxis(1);
+        _car.TurnByAxis(-.2f);
     }
 }

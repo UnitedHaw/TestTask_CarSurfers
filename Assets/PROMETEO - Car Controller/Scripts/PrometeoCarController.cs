@@ -500,7 +500,6 @@ public class PrometeoCarController : MonoBehaviour
         //If the forces aplied to the rigidbody in the 'x' asis are greater than
         //3f, it means that the car is losing traction, then the car will start emitting particle systems.
 
-        Debug.Log("Forward");
         if (Mathf.Abs(localVelocityX) > 2.5f){
         isDrifting = true;
         DriftCarPS();

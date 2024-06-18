@@ -8,7 +8,8 @@ using UnityEngine;
 namespace Client {
     sealed class EcsStartup : MonoBehaviour {
         [Inject] GameInstaller _gameInstaller;
-        EcsWorld _world;        
+        EcsWorld _world;
+        IEcsSystems _fixedSystem;
         IEcsSystems _systems;
 
         void Start () {
@@ -25,11 +26,23 @@ namespace Client {
                 .Inject(_gameInstaller.Joystick)
                 .Inject(_gameInstaller.CarController)
                 .Init ();
+
+            _fixedSystem = new EcsSystems (_world);
+            _fixedSystem
+                .Add(new CarMoveSystem())
+                .Inject(_gameInstaller.Joystick)
+                .Inject(_gameInstaller.CarController)
+            .Init();
         }
 
         void Update () {
             // process systems here.
             _systems?.Run ();
+        }
+
+        private void FixedUpdate()
+        {
+            _fixedSystem?.Run();
         }
 
         void OnDestroy () {
