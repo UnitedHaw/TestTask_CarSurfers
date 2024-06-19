@@ -36,27 +36,22 @@ namespace Client {
         }
 
         void Update () {
-            // process systems here.
             _systems?.Run ();
         }
 
-        private void FixedUpdate()
+        void FixedUpdate()
         {
             _fixedSystem?.Run();
         }
 
         void OnDestroy () {
             if (_systems != null) {
-                // list of custom worlds will be cleared
-                // during IEcsSystems.Destroy(). so, you
-                // need to save it here if you need.
                 _systems.Destroy ();
+                _fixedSystem.Destroy();
                 _systems = null;
+                _fixedSystem = null;   
             }
-            
-            // cleanup custom worlds here.
-            
-            // cleanup default world.
+
             if (_world != null) {
                 _world.Destroy ();
                 _world = null;

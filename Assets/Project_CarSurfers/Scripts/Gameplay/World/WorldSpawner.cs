@@ -1,32 +1,37 @@
+using Assets.Project_CarSurfers.Scripts.Interfaces;
 using Reflex.Attributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class RoadSpawner : MonoBehaviour
+public class WorldSpawner : MonoBehaviour
 {
-    [SerializeField] private List<RoadView> _roadVairiants;
     [SerializeField] private GameObjectFactory _factory;
+    [SerializeField] private WorldPieceView _pfWorldPiece;
     [SerializeField] private int _activeRoadAmount;
     [SerializeField] private float _spawnDistance;
+    [SerializeField] private float _heightOffset;
+    [Inject] private IPlayer _player;
 
-    [Inject] private PrometeoCarController _carController;
-
-    private ObjectPool<RoadView> _roadPool;
-    private Queue<RoadView> _spawnedRoadQueue;
+    private ObjectPool<WorldPieceView> _roadPool;
+    private Queue<WorldPieceView> _spawnedRoadQueue;
 
     private Vector3 _nextSpawnPoint;
+    private float _pieceLength;
+    
     private void Awake()
     {
-        _spawnedRoadQueue = new Queue<RoadView>();
-        _roadPool = new ObjectPool<RoadView>(
-            () => _factory.InstantiateObject(_roadVairiants[0], transform), GetAction, ReleaseAction);
+        _spawnedRoadQueue = new Queue<WorldPieceView>();
+        _roadPool = new ObjectPool<WorldPieceView>(
+            () => _factory.InstantiateObject(_pfWorldPiece, transform), GetAction, ReleaseAction);
+        _pieceLength = _pfWorldPiece.Length;
     }
 
     private void Start()
     {
-        _nextSpawnPoint = _carController.transform.position - new Vector3(0, 0, 30);
+        _nextSpawnPoint = GetFirstSpawnPoint();  
         for (int i = 0; i < _activeRoadAmount; i++)
         {
             SpawnRoad(false);
@@ -35,7 +40,7 @@ public class RoadSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(_carController.transform.position, _nextSpawnPoint) < _spawnDistance)
+        if (Vector3.Distance(_player.Transform.position, _nextSpawnPoint) < _spawnDistance)
         {
             SpawnRoad();
         }
@@ -56,12 +61,17 @@ public class RoadSpawner : MonoBehaviour
         _spawnedRoadQueue.Enqueue(road);
     }
 
-    private void ReleaseAction(RoadView road)
+    private Vector3 GetFirstSpawnPoint()
+    {
+        return _player.Transform.position - new Vector3(0, _heightOffset, _pieceLength) * _activeRoadAmount / 2;
+    }
+
+    private void ReleaseAction(WorldPieceView road)
     {
         road.Enable(false);
     }
 
-    private void GetAction(RoadView road)
+    private void GetAction(WorldPieceView road)
     {
         road.Enable(true);
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoadView : MonoBehaviour
+public class WorldPieceView : MonoBehaviour
 {
     [SerializeField] private Transform _view;
     public float Width => _view.localScale.x;

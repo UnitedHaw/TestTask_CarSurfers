@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7061192024133969982}
   - component: {fileID: 2754695482461682161}
-  - component: {fileID: 5609647617946804082}
+  - component: {fileID: 1023525303372847229}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -219,7 +219,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5609647617946804082
+--- !u!114 &1023525303372847229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1502087684208074065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a6e69eff565574f9824970443eac12, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f30ebcf8b6f6c94bbb150e7acb288e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 120
@@ -267,6 +267,7 @@ MonoBehaviour:
   carSpeed: 0
   isDrifting: 0
   isTractionLocked: 0
+  _minAxisThreshold: 0
 --- !u!1 &1794671697682889006
 GameObject:
   m_ObjectHideFlags: 0
