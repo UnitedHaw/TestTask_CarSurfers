@@ -66,12 +66,12 @@ public class WorldSpawner : MonoBehaviour
         return _player.Transform.position - new Vector3(0, _heightOffset, _pieceLength) * _activeRoadAmount / 2;
     }
 
-    private void ReleaseAction(WorldPieceView road)
+    protected virtual void ReleaseAction(WorldPieceView road)
     {
         road.Enable(false);
     }
 
-    private void GetAction(WorldPieceView road)
+    protected virtual void GetAction(WorldPieceView road)
     {
         road.Enable(true);
     }

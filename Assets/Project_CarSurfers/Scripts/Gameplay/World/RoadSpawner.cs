@@ -1,14 +1,20 @@
-﻿using System;
+using Cysharp.Threading.Tasks;
+using Reflex.Attributes;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Project_CarSurfers.Scripts.Gameplay.World
+public class RoadSpawner : WorldSpawner
 {
-    public class RoadSpawner : WorldSpawner
+    [Inject] private CoinSpawner _coinSpawner;
+    protected override void GetAction(WorldPieceView road)
     {
+        base.GetAction(road);
+        //_coinSpawner.SpawnCoins(road);
+    }
 
+    protected override void ReleaseAction(WorldPieceView road)
+    {
+        //_coinSpawner.RemoveCoins(road);
     }
 }

@@ -12,11 +12,15 @@ public class GameInstaller : MonoBehaviour, IInstaller
 {
     [field: SerializeField] public Joystick Joystick { get; private set; }
     [field: SerializeField] public PlayerController CarController { get; private set; }
-
+    [field: SerializeField] public CoinSpawner CoinSpawner { get; private set; }
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
         containerBuilder
             .AddSingleton(this)
-            .AddSingleton(CarController, typeof(JoystickCarController), typeof(PrometeoCarController), typeof(IPlayer));
+            .AddSingleton(CarController,
+                typeof(JoystickCarController),
+                typeof(PrometeoCarController),
+                typeof(IPlayer))
+            .AddSingleton(CoinSpawner);
     }
 }
