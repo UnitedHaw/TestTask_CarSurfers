@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.26621345, y: 0.000000016585469, z: -0.000000004580569, w: 0.9639141}
+  m_LocalRotation: {x: 0.26621348, y: -0.00000001658548, z: 0.000000004580572, w: 0.9639141}
   m_LocalPosition: {x: 0, y: 7.32, z: -9.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -868,9 +868,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8237acdc1c58d4a85b8a8ccd9ca20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pfCoin: {fileID: 1993876727930910208, guid: 6a6010ed947ee664995da976549f1ce1, type: 3}
-  _spawnOffset: 3
-  _heighOffset: 1
+  _spawnConfig:
+    <PfCoin>k__BackingField: {fileID: 4019640549825386650, guid: 6a6010ed947ee664995da976549f1ce1,
+      type: 3}
+    <Lines>k__BackingField: 3
+    <CoinsInBatch>k__BackingField: 4
+    <MarginOffset>k__BackingField: 3
+    <BorderOffset>k__BackingField: 1
+    <SpawnChance>k__BackingField: 50
 --- !u!1001 &1347221021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1193,7 +1198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626870980}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.26621345, y: 0.000000016585469, z: -0.000000004580569, w: 0.9639141}
+  m_LocalRotation: {x: 0.26621348, y: -0.00000001658548, z: 0.000000004580572, w: 0.9639141}
   m_LocalPosition: {x: 0, y: 7.32, z: -9.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -11,7 +11,7 @@ namespace Assets.Project_CarSurfers.Scripts
     {
         private EcsWorldInject _world;
         private EcsPoolInject<PlayerTag> _playerTagPool;
-        private EcsPoolInject<CarComponent> _carComponentPool;
+        private EcsPoolInject<Car> _carComponentPool;
         private EcsCustomInject<Joystick> _joystick;
         private EcsCustomInject<JoystickCarController> _carController;
         private int _playerEntity;

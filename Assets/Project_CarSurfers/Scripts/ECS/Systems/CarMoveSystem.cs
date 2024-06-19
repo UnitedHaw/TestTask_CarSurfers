@@ -7,8 +7,8 @@ namespace Assets.Project_CarSurfers.Scripts.ECS.Systems
 {
     public class CarMoveSystem : IEcsRunSystem
     {
-        private EcsPoolInject<CarComponent> _carComponentPool;
-        private EcsFilterInject<Inc<CarComponent>> _carComponentFilter;
+        private EcsPoolInject<Car> _carComponentPool;
+        private EcsFilterInject<Inc<Car>> _carComponentFilter;
         public void Run(IEcsSystems systems)
         {
             foreach (var entity in _carComponentFilter.Value)

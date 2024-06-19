@@ -17,4 +17,12 @@ public class RoadSpawner : WorldSpawner
     {
         //_coinSpawner.RemoveCoins(road);
     }
+
+    protected override void SpawStartPieces()
+    {
+        base.SpawStartPieces();
+
+        var road = _spawnedPieceQueue.Peek();
+        _coinSpawner.SpawnCoins(road);
+    }
 }

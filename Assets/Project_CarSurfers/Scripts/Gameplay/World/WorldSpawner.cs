@@ -15,15 +15,15 @@ public class WorldSpawner : MonoBehaviour
     [SerializeField] private float _heightOffset;
     [Inject] private IPlayer _player;
 
-    private ObjectPool<WorldPieceView> _roadPool;
-    private Queue<WorldPieceView> _spawnedRoadQueue;
+    protected ObjectPool<WorldPieceView> _roadPool;
+    protected Queue<WorldPieceView> _spawnedPieceQueue;
 
     private Vector3 _nextSpawnPoint;
     private float _pieceLength;
     
     private void Awake()
     {
-        _spawnedRoadQueue = new Queue<WorldPieceView>();
+        _spawnedPieceQueue = new Queue<WorldPieceView>();
         _roadPool = new ObjectPool<WorldPieceView>(
             () => _factory.InstantiateObject(_pfWorldPiece, transform), GetAction, ReleaseAction);
         _pieceLength = _pfWorldPiece.Length;
@@ -31,10 +31,15 @@ public class WorldSpawner : MonoBehaviour
 
     private void Start()
     {
-        _nextSpawnPoint = GetFirstSpawnPoint();  
+        SpawStartPieces();
+    }
+
+    protected virtual void SpawStartPieces()
+    {
+        _nextSpawnPoint = GetFirstSpawnPoint();
         for (int i = 0; i < _activeRoadAmount; i++)
         {
-            SpawnRoad(false);
+            SpawnPiece(false);
         }
     }
 
@@ -42,11 +47,11 @@ public class WorldSpawner : MonoBehaviour
     {
         if (Vector3.Distance(_player.Transform.position, _nextSpawnPoint) < _spawnDistance)
         {
-            SpawnRoad();
+            SpawnPiece();
         }
     }
 
-    private void SpawnRoad(bool dequeueFirst = true)
+    private void SpawnPiece(bool dequeueFirst = true)
     {
         var road = _roadPool.Get();
         road.transform.position = _nextSpawnPoint;
@@ -54,11 +59,11 @@ public class WorldSpawner : MonoBehaviour
 
        if (dequeueFirst)
         {
-            var lastRoad = _spawnedRoadQueue.Dequeue();
+            var lastRoad = _spawnedPieceQueue.Dequeue();
             _roadPool.Release(lastRoad);
         }      
 
-        _spawnedRoadQueue.Enqueue(road);
+        _spawnedPieceQueue.Enqueue(road);
     }
 
     private Vector3 GetFirstSpawnPoint()

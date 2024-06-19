@@ -1,3 +1,4 @@
+using Assets.Project_CarSurfers.Scripts.Gameplay.Collectables;
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
@@ -6,44 +7,46 @@ using UnityEngine;
 
 public class CoinSpawner : MonoBehaviour
 {
-    [SerializeField] private Coin _pfCoin;
-    [SerializeField] private float _spawnOffset;
-    [SerializeField] private float _heighOffset;
-    private List<Coin> _coins;
-    private float _spawnChance = .3f;
+    [SerializeField] private CoinSpawnConfig _spawnConfig;
+    private List<CoinView> _coins;
 
     private void Awake()
     {
-        _coins = new List<Coin>();
+        _coins = new List<CoinView>();
     }
 
-    public async void SpawnCoins(WorldPieceView road)
+    public void SpawnCoins(WorldPieceView road)
     {
-        var roadStartPoint = road.StartPoint;
+        var width = road.Width/_spawnConfig.MarginOffset;
+        var length = road.Length/ _spawnConfig.MarginOffset;
+        var batchesAmount = length % _spawnConfig.CoinsInBatch;
 
-        for (int z = 0; z < road.Length; z++)
+        var batchEndPos = Vector3.zero;
+        for (int i = 0; i < batchesAmount; i++)
         {
-            if (z % _spawnOffset != 0) continue;
-
-            for (int x = 0; x < road.Width; x++)
-            {
-                if (x % _spawnOffset != 0) continue;
-
-                var chance = UnityEngine.Random.Range(0f, 1f);
-
-                if(chance > _spawnChance)
-                {
-                    var spawnPosition = roadStartPoint + new Vector3(x, _heighOffset, z);
-                    _coins.Add(Instantiate(_pfCoin, spawnPosition, Quaternion.identity));
-                }
-                await UniTask.NextFrame();
-            }
+            if(i == 0)
+                batchEndPos = SpawnBatch(road.transform.position, road.Width);
+            else
+                SpawnBatch(batchEndPos, road.Width);
         }
+    }
+
+    private Vector3 SpawnBatch(Vector3 startPoint, float width)
+    {
+        var spawnPoint = Vector3.zero;
+        for (int j = 0; j < _spawnConfig.CoinsInBatch; j++)
+        {
+            var coin = Instantiate(_spawnConfig.PfCoin);
+            spawnPoint = startPoint + new Vector3(-width / 2 + _spawnConfig.BorderOffset, 0, j + _spawnConfig.MarginOffset);
+            coin.transform.position = spawnPoint;
+        }
+
+        return spawnPoint;
     }
 
     public void RemoveCoins(WorldPieceView road)
     {
-        foreach (Coin coin in _coins)
+        foreach (CoinView coin in _coins)
         {
             Destroy(coin.gameObject);
         }
