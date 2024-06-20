@@ -1,4 +1,5 @@
 ﻿using Assets.Project_CarSurfers.Scripts.Gameplay.Collectables;
+using Reflex.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,9 @@ namespace Assets.Project_CarSurfers.Scripts.ScriptableObjects
         private void SetupCoins(PlateView road)
         {
             if (_coinMapper == null)
+            {
                 _coinMapper = new CoinMapper(_coinSpawnConfig);
+            }         
 
             var coinsPositions = _coinMapper.GetSpawnPositions(road);
             foreach (var position in coinsPositions)

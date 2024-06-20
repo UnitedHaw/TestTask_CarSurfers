@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1;">
-        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Coins" />
-        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Speed" />
+    <ui:VisualElement picking-mode="Ignore" style="flex-grow: 1; justify-content: space-between; flex-direction: row; padding-top: 101px;">
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Coins" picking-mode="Ignore" style="-unity-font-style: bold; color: rgb(255, 226, 94); font-size: 60px; margin-left: 20px; margin-top: 0; margin-right: 0; margin-bottom: 0;" />
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Speed" picking-mode="Ignore" style="margin-bottom: 0; -unity-font-style: bold; font-size: 31px; color: rgb(255, 255, 255); margin-left: 0; margin-right: 20px; margin-top: -30px;" />
     </ui:VisualElement>
 </ui:UXML>

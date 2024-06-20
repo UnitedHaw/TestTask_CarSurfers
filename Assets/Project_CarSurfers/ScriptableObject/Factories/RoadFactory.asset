@@ -19,6 +19,8 @@ MonoBehaviour:
   _coinSpawnConfig:
     <PfCoin>k__BackingField: {fileID: 4019640549825386650, guid: 6a6010ed947ee664995da976549f1ce1,
       type: 3}
+    <PickupParticle>k__BackingField: {fileID: 19806904, guid: 09d9de58ef3bf5444ac94afa0e6013cb,
+      type: 3}
     <Lines>k__BackingField: 3
     <CoinsInBatch>k__BackingField: 4
     <MarginOffset>k__BackingField: 2

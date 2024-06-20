@@ -32,12 +32,9 @@ namespace Assets.Project_CarSurfers.Scripts
                 }
             }
 
-            Debug.Log("Steering axis: " +  steeringAxis);
-
             var steeringAngle = steeringAxis * Math.Abs(axis) * maxSteeringAngle;
             frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
             frontRightCollider.steerAngle = Mathf.Lerp(frontRightCollider.steerAngle, steeringAngle, steeringSpeed);
-            Debug.Log("steeringAngle: " + steeringAngle);
         }
     }
 }

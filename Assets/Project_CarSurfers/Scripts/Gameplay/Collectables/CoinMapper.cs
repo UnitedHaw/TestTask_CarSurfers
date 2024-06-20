@@ -1,5 +1,6 @@
 using Assets.Project_CarSurfers.Scripts.Gameplay.Collectables;
 using Cysharp.Threading.Tasks;
+using Reflex.Attributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,7 +12,6 @@ public class CoinMapper
     private CoinSpawnConfig _spawnConfig;
     private List<Vector3> _coinsPositions;
     private float _linesStep;
-
     public CoinMapper(CoinSpawnConfig spawnConfig)
     {
         _spawnConfig = spawnConfig;

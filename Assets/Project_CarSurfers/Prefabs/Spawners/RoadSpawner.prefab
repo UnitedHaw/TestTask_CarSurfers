@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5613988300759696262
+--- !u!1 &6089026938360919244
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8209470291516786287}
-  - component: {fileID: 8981304940911141810}
+  - component: {fileID: 503921655081640768}
+  - component: {fileID: 2096951453455595079}
   m_Layer: 0
   m_Name: RoadSpawner
   m_TagString: Untagged
@@ -17,36 +17,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8209470291516786287
+--- !u!4 &503921655081640768
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613988300759696262}
+  m_GameObject: {fileID: 6089026938360919244}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8981304940911141810
+--- !u!114 &2096951453455595079
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613988300759696262}
+  m_GameObject: {fileID: 6089026938360919244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f836ae0c0abcc1479b4d7ae387463b4, type: 3}
+  m_Script: {fileID: 11500000, guid: cfd0457c984b1b346852adef301c422f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _factory: {fileID: 11400000, guid: 19b4ac11eeac1a4439f48e17a57c69e4, type: 2}
-  _pfWorldPiece: {fileID: 3427032135614553636, guid: 8a0b6d126de6e4541b8b3ceab443f852,
-    type: 3}
-  _activeRoadAmount: 8
+  _factory: {fileID: 11400000, guid: 6d187a5bb50c0324f85f4faf2741a2b4, type: 2}
+  _activePlatesAmount: 8
   _spawnDistance: 100
   _heightOffset: 0

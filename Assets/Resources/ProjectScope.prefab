@@ -59,3 +59,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiDocument: {fileID: 5764163735860796217, guid: ff3b38bc5a7fbbb4bac1943520873c82,
     type: 3}
+  _vfxController: {fileID: 8909108135881643439, guid: 984fb3a933c5e5e44ae30ff8890f5b63,
+    type: 3}
