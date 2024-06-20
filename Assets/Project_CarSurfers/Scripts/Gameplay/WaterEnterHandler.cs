@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Project_CarSurfers.Scripts.Gameplay;
+using Reflex.Attributes;
 using UnityEngine;
 
 public class WaterEnterHandler : MonoBehaviour
 {
+    [Inject] private IGameStateController _gameState;
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out PrometeoCarController controller))
+        if (other.TryGetComponent(out Player player))
         {
-            controller.GetComponent<Rigidbody>().isKinematic = true;
+            player.Fail();
         }
     }
 }

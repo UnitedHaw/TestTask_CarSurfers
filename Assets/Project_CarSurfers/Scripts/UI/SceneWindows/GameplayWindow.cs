@@ -12,9 +12,9 @@ namespace Assets.Project_HyperBoxer.Scripts.UI
 {
     public class GameplayWindow : SceneWindow
     {
-        public GameplayWindow(UIDocument rootDocument) : base(rootDocument)
+        public GameplayWindow(UIDocument rootDocument, IStateChanger stateChanger) : base(rootDocument)
         {
-            _uiWindows.Add(new InfoWindow(_rootDocument));
+            _uiWindows.Add(new PlayerWindow(_rootDocument, stateChanger));
         }
     }
 }

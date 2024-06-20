@@ -1,24 +1,20 @@
 using Assets.Project_CarSurfers.Scripts;
-using Assets.Project_CarSurfers.Scripts.Controllers;
-using Assets.Project_CarSurfers.Scripts.Interfaces;
-using Assets.Project_HyperBoxer.Scripts.UI;
-using Assets.Project_HyperBoxer.Scripts.UI.Base;
-using Reflex.Attributes;
+using Assets.Project_CarSurfers.Scripts.Gameplay;
 using Reflex.Core;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GameInstaller : MonoBehaviour, IInstaller
 {
-    [field: SerializeField] public Joystick Joystick { get; private set; }
-    [field: SerializeField] public PlayerController CarController { get; private set; }
+    [SerializeField] private GameController _gameController;
+    [SerializeField] private Player _player;
+
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
         containerBuilder
-            .AddSingleton(this)
-            .AddSingleton(CarController,
+            .AddSingleton(_gameController, typeof(GameController), typeof(IGameStateController))
+            .AddSingleton(_player)
+            .AddSingleton(_gameController.CarController,
                 typeof(JoystickCarController),
-                typeof(PrometeoCarController),
-                typeof(IPlayer));
+                typeof(PrometeoCarController));
     }
 }

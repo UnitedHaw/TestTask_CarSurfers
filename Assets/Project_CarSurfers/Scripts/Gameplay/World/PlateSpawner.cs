@@ -1,8 +1,6 @@
-using Assets.Project_CarSurfers.Scripts.Interfaces;
+using Assets.Project_CarSurfers.Scripts.Gameplay;
 using Assets.Project_CarSurfers.Scripts.ScriptableObjects;
 using Reflex.Attributes;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -13,7 +11,7 @@ public class PlateSpawner : MonoBehaviour
     [SerializeField] private int _activePlatesAmount;
     [SerializeField] private float _spawnDistance;
     [SerializeField] private float _heightOffset;
-    [Inject] private IPlayer _player;
+    [Inject] private Player _player;
 
     protected ObjectPool<PlateView> _roadPool;
     protected Queue<PlateView> _spawnedPieceQueue;
@@ -46,7 +44,7 @@ public class PlateSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(_player.Transform.position, _nextSpawnPoint) < _spawnDistance)
+        if (Vector3.Distance(_player.transform.position, _nextSpawnPoint) < _spawnDistance)
         {
             SpawnPiece();
         }
@@ -69,7 +67,7 @@ public class PlateSpawner : MonoBehaviour
 
     private Vector3 GetFirstSpawnPoint()
     {
-        return _player.Transform.position - new Vector3(0, _heightOffset, _pieceLength) * _activePlatesAmount / 2;
+        return _player.transform.position - new Vector3(0, _heightOffset, _pieceLength) * _activePlatesAmount / 2;
     }
 
     protected virtual void ReleaseAction(PlateView road)

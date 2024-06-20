@@ -9,6 +9,8 @@ public class ProjectInstaller : MonoBehaviour, IInstaller
     [SerializeField] private VFXController _vfxController;
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
+        Application.targetFrameRate = 120;
+
         var container = Instantiate(new GameObject("ProjectInstallers"));
         DontDestroyOnLoad(container);
 
@@ -17,7 +19,6 @@ public class ProjectInstaller : MonoBehaviour, IInstaller
 
         containerBuilder
             .AddSingleton(document)
-            .AddSingleton(vfxController)
-            .AddSingleton(new GameplayWindow(document));
+            .AddSingleton(vfxController);
     }
 }

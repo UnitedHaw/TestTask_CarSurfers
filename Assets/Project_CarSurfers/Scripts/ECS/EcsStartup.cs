@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Client {
     sealed class EcsStartup : MonoBehaviour {
-        [Inject] GameInstaller _gameInstaller;
+        [Inject] GameController _gameController;
         EcsWorld _world;
         IEcsSystems _fixedSystem;
         IEcsSystems _systems;
@@ -23,20 +23,20 @@ namespace Client {
                 .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem ())
 
 #endif
-                .Inject(_gameInstaller.Joystick)
-                .Inject(_gameInstaller.CarController)
+                .Inject(_gameController.Joystick)
+                .Inject(_gameController.CarController)
                 .Init ();
 
             _fixedSystem = new EcsSystems (_world);
             _fixedSystem
                 .Add(new CarMoveSystem())
-                .Inject(_gameInstaller.Joystick)
-                .Inject(_gameInstaller.CarController)
+                .Inject(_gameController.Joystick)
+                .Inject(_gameController.CarController)
             .Init();
         }
 
         void Update () {
-            _systems?.Run ();
+            _systems?.Run();
         }
 
         void FixedUpdate()

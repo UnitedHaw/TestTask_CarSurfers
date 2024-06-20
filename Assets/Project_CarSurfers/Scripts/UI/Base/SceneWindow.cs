@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 namespace Assets.Project_HyperBoxer.Scripts.UI.Base
 {
-    public class SceneWindow
+    public class SceneWindow : IDisposable
     {
         protected UIDocument _rootDocument;
         protected List<UIWindow> _uiWindows;
@@ -16,6 +16,14 @@ namespace Assets.Project_HyperBoxer.Scripts.UI.Base
         {
             _rootDocument = rootDocument;
             _uiWindows = new List<UIWindow>();
+        }
+
+        public void Dispose()
+        {
+            foreach(UIWindow window in _uiWindows)
+            {
+                window.Dispose();
+            }
         }
 
         public T GetWindow<T>() where T : UIWindow

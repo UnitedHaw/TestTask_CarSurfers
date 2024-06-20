@@ -165,8 +165,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7061192024133969982}
-  - component: {fileID: 1082756124445569037}
   - component: {fileID: 2754695482461682161}
+  - component: {fileID: 1538213142976851134}
+  - component: {fileID: 6222400824727616445}
   - component: {fileID: 1023525303372847229}
   m_Layer: 0
   m_Name: PlayerCar
@@ -193,27 +194,6 @@ Transform:
   - {fileID: 7379095657792807852}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1082756124445569037
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502087684208074065}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 3.05
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2754695482461682161
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -241,6 +221,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1538213142976851134
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502087684208074065}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.32, y: 1, z: 4.99}
+  m_Center: {x: 0, y: 0.71, z: -0.1}
+--- !u!114 &6222400824727616445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502087684208074065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52db3eb504193ad4497c85abeb4a2306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1023525303372847229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +302,7 @@ MonoBehaviour:
   carSpeed: 0
   isDrifting: 0
   isTractionLocked: 0
-  _minAxisThreshold: 0
+  _minAxisThreshold: 0.3
 --- !u!1 &1794671697682889006
 GameObject:
   m_ObjectHideFlags: 0
