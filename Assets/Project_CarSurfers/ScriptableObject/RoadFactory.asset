@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035e70e8cb1cfd9429c360cda523db37, type: 3}
+  m_Name: RoadFactory
+  m_EditorClassIdentifier: 
+  _pfRoad: {fileID: 7210853669722549480, guid: 349620dfac1faf8479c9b2b9405e1eae, type: 3}
+  _pfWater: {fileID: 5179101033467971283, guid: c5b2567bf1ba4a343a579e0b780c2059,
+    type: 3}
+  _plateType: 0
+  _coinSpawnConfig:
+    <PfCoin>k__BackingField: {fileID: 4019640549825386650, guid: 6a6010ed947ee664995da976549f1ce1,
+      type: 3}
+    <Lines>k__BackingField: 3
+    <CoinsInBatch>k__BackingField: 4
+    <MarginOffset>k__BackingField: 2
+    <BorderOffset>k__BackingField: 1
+    <HeighOffset>k__BackingField: 1
+    <SpawnChance>k__BackingField: 40

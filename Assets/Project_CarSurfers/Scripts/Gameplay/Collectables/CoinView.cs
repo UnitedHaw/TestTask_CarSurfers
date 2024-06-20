@@ -9,7 +9,15 @@ public class CoinView : MonoBehaviour
     {
         if (other.TryGetComponent(out PrometeoCarController controller))
         {
-            transform.DOScale(0, 1);
+            Enable(false);
         }
+    }
+
+    public void Enable(bool enable)
+    {
+        if(enable)
+            transform.localScale = Vector3.one;
+        else
+            transform.DOScale(0, .5f);
     }
 }

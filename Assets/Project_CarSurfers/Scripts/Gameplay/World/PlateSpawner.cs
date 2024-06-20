@@ -1,4 +1,5 @@
 using Assets.Project_CarSurfers.Scripts.Interfaces;
+using Assets.Project_CarSurfers.Scripts.ScriptableObjects;
 using Reflex.Attributes;
 using System;
 using System.Collections;
@@ -6,27 +7,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class WorldSpawner : MonoBehaviour
+public class PlateSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObjectFactory _factory;
-    [SerializeField] private WorldPieceView _pfWorldPiece;
-    [SerializeField] private int _activeRoadAmount;
+    [SerializeField] private PlateFactory _factory;
+    [SerializeField] private int _activePlatesAmount;
     [SerializeField] private float _spawnDistance;
     [SerializeField] private float _heightOffset;
     [Inject] private IPlayer _player;
 
-    protected ObjectPool<WorldPieceView> _roadPool;
-    protected Queue<WorldPieceView> _spawnedPieceQueue;
+    protected ObjectPool<PlateView> _roadPool;
+    protected Queue<PlateView> _spawnedPieceQueue;
 
     private Vector3 _nextSpawnPoint;
     private float _pieceLength;
     
     private void Awake()
     {
-        _spawnedPieceQueue = new Queue<WorldPieceView>();
-        _roadPool = new ObjectPool<WorldPieceView>(
-            () => _factory.InstantiateObject(_pfWorldPiece, transform), GetAction, ReleaseAction);
-        _pieceLength = _pfWorldPiece.Length;
+        _spawnedPieceQueue = new Queue<PlateView>();
+        _roadPool = new ObjectPool<PlateView>(
+            () => _factory.Get(transform), GetAction, ReleaseAction);
+
+        _pieceLength = _factory.Prefab.Length;
     }
 
     private void Start()
@@ -37,7 +38,7 @@ public class WorldSpawner : MonoBehaviour
     protected virtual void SpawStartPieces()
     {
         _nextSpawnPoint = GetFirstSpawnPoint();
-        for (int i = 0; i < _activeRoadAmount; i++)
+        for (int i = 0; i < _activePlatesAmount; i++)
         {
             SpawnPiece(false);
         }
@@ -68,15 +69,15 @@ public class WorldSpawner : MonoBehaviour
 
     private Vector3 GetFirstSpawnPoint()
     {
-        return _player.Transform.position - new Vector3(0, _heightOffset, _pieceLength) * _activeRoadAmount / 2;
+        return _player.Transform.position - new Vector3(0, _heightOffset, _pieceLength) * _activePlatesAmount / 2;
     }
 
-    protected virtual void ReleaseAction(WorldPieceView road)
+    protected virtual void ReleaseAction(PlateView road)
     {
         road.Enable(false);
     }
 
-    protected virtual void GetAction(WorldPieceView road)
+    protected virtual void GetAction(PlateView road)
     {
         road.Enable(true);
     }
