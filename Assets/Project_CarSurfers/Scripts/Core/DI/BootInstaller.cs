@@ -1,4 +1,4 @@
-using Assets.Project_HyperBoxer.Scripts.UI;
+using Assets.Project_CarSurfer.Scripts.UI;
 using Reflex.Attributes;
 using Reflex.Core;
 using UnityEngine;

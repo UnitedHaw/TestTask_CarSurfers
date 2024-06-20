@@ -1,8 +1,4 @@
 using Assets.Project_CarSurfers.Scripts.Gameplay.Collectables;
-using Cysharp.Threading.Tasks;
-using Reflex.Attributes;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine.UIElements;
 
-namespace Assets.Project_HyperBoxer.Scripts.UI.Base
+namespace Assets.Project_CarSurfer.Scripts.UI.Base
 {
     public class SceneWindow : IDisposable
     {

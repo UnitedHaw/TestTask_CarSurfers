@@ -1,12 +1,6 @@
-﻿using Assets.Project_CarSurfers.Scripts.Utils.Extentions;
-using Assets.Project_HyperBoxer.Scripts.UI;
-using Reflex.Attributes;
+﻿using Assets.Project_CarSurfer.Scripts.UI;
+using Assets.Project_CarSurfers.Scripts.Utils.Extentions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Assets.Project_CarSurfers.Scripts.UI.SceneWindows

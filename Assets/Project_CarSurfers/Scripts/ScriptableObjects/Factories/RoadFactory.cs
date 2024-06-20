@@ -1,12 +1,5 @@
 ﻿using Assets.Project_CarSurfers.Scripts.Gameplay.Collectables;
-using Reflex.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Pool;
 
 namespace Assets.Project_CarSurfers.Scripts.ScriptableObjects
 {

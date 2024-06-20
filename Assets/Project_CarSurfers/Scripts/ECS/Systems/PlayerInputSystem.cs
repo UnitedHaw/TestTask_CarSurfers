@@ -1,9 +1,6 @@
 ﻿using Assets.Project_CarSurfers.Scripts.ECS.Components;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
-using Reflex.Attributes;
-using System;
-using UnityEngine;
 
 namespace Assets.Project_CarSurfers.Scripts
 {

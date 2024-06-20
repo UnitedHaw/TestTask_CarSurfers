@@ -1,14 +1,8 @@
-﻿using Assets.Project_CarSurfers.Scripts.UI.SceneWindows;
-using Assets.Project_HyperBoxer.Scripts.Interfaces.UI;
-using Assets.Project_HyperBoxer.Scripts.UI.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Project_CarSurfer.Scripts.UI.Base;
+using Assets.Project_CarSurfers.Scripts.UI.SceneWindows;
 using UnityEngine.UIElements;
 
-namespace Assets.Project_HyperBoxer.Scripts.UI
+namespace Assets.Project_CarSurfer.Scripts.UI
 {
     public class GameplayWindow : SceneWindow
     {

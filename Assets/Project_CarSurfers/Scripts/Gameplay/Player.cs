@@ -1,7 +1,6 @@
-﻿using Assets.Project_CarSurfers.Scripts.UI.SceneWindows;
-using Assets.Project_HyperBoxer.Scripts.UI;
+﻿using Assets.Project_CarSurfer.Scripts.UI;
+using Assets.Project_CarSurfers.Scripts.UI.SceneWindows;
 using Reflex.Attributes;
-using System;
 using UnityEngine;
 
 namespace Assets.Project_CarSurfers.Scripts.Gameplay
