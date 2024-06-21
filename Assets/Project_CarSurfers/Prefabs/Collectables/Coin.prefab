@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 60
+  _pickUpSound: {fileID: 8300000, guid: 28cc72e3e2721394087b0c059e842dc7, type: 3}
 --- !u!1001 &8069116956964762996
 PrefabInstance:
   m_ObjectHideFlags: 0

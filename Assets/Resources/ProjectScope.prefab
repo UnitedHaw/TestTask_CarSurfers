@@ -61,3 +61,5 @@ MonoBehaviour:
     type: 3}
   _vfxController: {fileID: 8909108135881643439, guid: 984fb3a933c5e5e44ae30ff8890f5b63,
     type: 3}
+  _soundController: {fileID: 4521194586392936522, guid: 7369457fdfe194847909302d82b3351d,
+    type: 3}

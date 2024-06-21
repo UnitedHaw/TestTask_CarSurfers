@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinView : MonoBehaviour
 {
     [SerializeField] private float _rotationSpeed;
+    [SerializeField] private AudioClip _pickUpSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,6 +13,7 @@ public class CoinView : MonoBehaviour
         {
             Enable(false);
             player.AddCoin();
+            SoundController.Instance.PlaySound(_pickUpSound);
         }
     }
 

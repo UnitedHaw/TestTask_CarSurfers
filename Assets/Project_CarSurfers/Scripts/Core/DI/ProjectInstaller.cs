@@ -6,17 +6,18 @@ public class ProjectInstaller : MonoBehaviour, IInstaller
 {
     [SerializeField] private UIDocument _uiDocument;
     [SerializeField] private VFXController _vfxController;
+    [SerializeField] private SoundController _soundController;
     public void InstallBindings(ContainerBuilder containerBuilder)
     {
         Application.targetFrameRate = 120;
 
         var container = Instantiate(new GameObject("ProjectInstallers"));
         DontDestroyOnLoad(container);
-
-        var document = Instantiate(_uiDocument, container.transform);
+     
         Instantiate(_vfxController, container.transform);
+        Instantiate(_soundController, container.transform);
 
         containerBuilder
-            .AddSingleton(document);
+            .AddSingleton(Instantiate(_uiDocument, container.transform));
     }
 }
