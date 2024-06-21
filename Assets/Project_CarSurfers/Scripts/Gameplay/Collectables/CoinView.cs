@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CoinView : MonoBehaviour
 {
+    [SerializeField] private float _rotationSpeed;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Player player))
@@ -13,11 +15,17 @@ public class CoinView : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        transform.Rotate(Vector3.up, _rotationSpeed * Time.deltaTime);
+    }
+
     public void Enable(bool enable)
     {
         if (enable)
         {
             transform.localScale = Vector3.one;
+            transform.eulerAngles = Vector3.zero;   
         }
         else
         {

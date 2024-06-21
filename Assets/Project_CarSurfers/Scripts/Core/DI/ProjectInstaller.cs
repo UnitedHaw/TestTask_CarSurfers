@@ -14,10 +14,9 @@ public class ProjectInstaller : MonoBehaviour, IInstaller
         DontDestroyOnLoad(container);
 
         var document = Instantiate(_uiDocument, container.transform);
-        var vfxController = Instantiate(_vfxController, container.transform);
+        Instantiate(_vfxController, container.transform);
 
         containerBuilder
-            .AddSingleton(document)
-            .AddSingleton(vfxController);
+            .AddSingleton(document);
     }
 }

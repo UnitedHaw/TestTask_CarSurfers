@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8204255163392499139
 Transform:
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ca497812f94fd4eb9849cc2eff9f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rotationSpeed: 60
 --- !u!1001 &8069116956964762996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153,7 +154,7 @@ PrefabInstance:
     - target: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3489686431026566396, guid: 3e29573f06c0a7e4fa986fff41de17af,
         type: 3}
